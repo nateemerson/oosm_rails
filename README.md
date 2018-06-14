@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+First, install [docker](https://www.docker.com/community-edition) and [docker-compose](https://docs.docker.com/compose/install/)
 
-Things you may want to cover:
+Then run these commands to build your docker image and run the app.
 
-* Ruby version
+```
+docker-compose build
+docker-compose up
+docker-compose run app rake db:create
+docker-compose run app rake db:migrate
+```
 
-* System dependencies
+To check whether your container is running, and get the ID of the container, run the command `docker ps`.
 
-* Configuration
+To access the command line of your docker container running rails, use the following command:
 
-* Database creation
+```
+docker-compose exec app /bin/bash
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This will put you on a linux commandline within your container. Any rails commands you find in documentation you want to run from here.
